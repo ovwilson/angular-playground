@@ -39,6 +39,9 @@
       "main": "main.playground.ts",
       "polyfills": "polyfills.ts",
       "tsconfig": "tsconfig.app.json",
+      "styles": [
+        "sass/_theming.scss"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
