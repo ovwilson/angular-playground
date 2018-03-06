@@ -1,10 +1,40 @@
-<div>
-    <mat-form-field *ngFor="group of modelGroup">
+<mat-card>
+
+    <mat-card-content>
+
+        <div fxLayout="row" fxLayoutGap="20px">
+
+            <div fxLayout="column">
+
+                <ng-container *ngFor="let model of modelGroup">
+                    <div [ngSwitch]="model?.type">
+                        <ng-template ngSwitchCase="text">
+                            <mat-form-field>
+                                <input matInput [id]="model?.name" [name]="model?.name" [placeholder]="model?.label">
+                            </mat-form-field>
+                        </ng-template>
+                        <ng-template ngSwitchCase="textarea">
+                            <mat-form-field>
+                                <textarea matInput [placeholder]="model?.label" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
+                            </mat-form-field>
+                        </ng-template>
+                        <ng-template ngSwitchDefault>...</ng-template>
+                    </div>
+                </ng-container>
+
+                <button mat-icon-button (click)="onAdd()"><mat-icon>add_circle</mat-icon> Add</button>
+
+            </div>
+
+            <app-data-table fxFlex [modelGroup]="modelGroup" [models]="models"></app-data-table>
+
+        </div>
+    </mat-card-content>
+
+</mat-card>
+
+<form>
 
 
-        <input matInput id="group?.name" name=""group?.name" 
-        formControlName="group?.name" placeholder=""group?.label">
-    </mat-form-field>
 
-</div>
-    
+</form>

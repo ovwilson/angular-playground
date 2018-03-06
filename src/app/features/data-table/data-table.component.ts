@@ -78,8 +78,6 @@ export class DataTableComponent {
     onFilter(val: any) {
         this.modelGroup = this.modelGroup.map(model => model.name === val.name ?
             Object.assign({}, model, { visible: !model.visible }) : model);
-
-        this.dataSource.filter = '';
     }
 
 
