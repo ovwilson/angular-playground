@@ -26,6 +26,11 @@ import { Observable } from 'rxjs/Observable';
 export class DataTableEntryComponent implements OnInit {
   modelForm: FormGroup;
   _modelGroup: any[];
+  _models:any[];
+
+  @Input() set models(data:any[]){
+    this._models = data;
+  }
 
   @Input()
   set formGroup(data: FormGroup) {
@@ -39,6 +44,10 @@ export class DataTableEntryComponent implements OnInit {
 
   get modelGroup() {
     return this._modelGroup;
+  }
+
+  get models(){
+    return this._models;
   }
 
   constructor(private fb: FormBuilder) {}
