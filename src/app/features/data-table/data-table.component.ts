@@ -1,7 +1,6 @@
-import { Component, Input, Output, EventEmitter, ElementRef, Renderer2 } from '@angular/core';
+import { Component, Input, Output, EventEmitter, Renderer2 } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
     // tslint:disable-next-line:component-selector

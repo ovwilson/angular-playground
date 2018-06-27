@@ -12,7 +12,7 @@ export default sandboxOf(DataTableEntryComponent, {
   imports: [SharedModule],
   declarations: [DataTableComponent]
 }).add('Dynamic Data Table Material with Data Entry', {
-  template: `<app-data-table-entry [modelGroup]="modelGroup"></app-data-table-entry>`,
+  template: `<app-data-table-entry [models]="models" [modelGroup]="modelGroup"></app-data-table-entry>`,
   context: {
     modelGroup: testBed.modelGroup,
     models: testBed.models
