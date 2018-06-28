@@ -1,17 +1,9 @@
 import {
   Component,
   Input,
-  OnInit,
-  Output,
-  EventEmitter,
-  ElementRef,
-  Renderer2
+  OnInit
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatTableDataSource } from '@angular/material';
-import { SelectionModel } from '@angular/cdk/collections';
-
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-data-table-entry',

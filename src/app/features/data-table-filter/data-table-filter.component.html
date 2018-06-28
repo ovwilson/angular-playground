@@ -1,0 +1,33 @@
+<mat-card>
+
+    <mat-card-content>
+
+        <div fxLayout="row" fxLayoutGap="20px">
+
+
+            <mat-accordion fxFlex="30%">
+                <mat-expansion-panel *ngFor="let val of filterGroup$ | async">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{val?.name}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <app-data-table-filter-details [filter]="val.name" [values]="values[val.name]">    
+                    </app-data-table-filter-details>
+
+                </mat-expansion-panel>
+            </mat-accordion>
+
+            <app-data-table fxFlex [modelGroup]="modelGroup" [models]="models"></app-data-table>
+
+        </div>
+    </mat-card-content>
+
+</mat-card>
+
+<form>
+
+
+
+</form>

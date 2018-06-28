@@ -6,6 +6,8 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent, PlaygroundCommonModule } from 'angular-playground';
 import { DataTableComponent } from './features/data-table/data-table.component';
 import { DataTableEntryComponent } from './features/data-table-entry/data-table-entry.component';
+import { DataTableFilterComponent, DataTableFilterDetailsComponent } from './features/data-table-filter/data-table-filter.component';
+
 
 @NgModule({
   imports: [
@@ -14,8 +16,8 @@ import { DataTableEntryComponent } from './features/data-table-entry/data-table-
     PlaygroundCommonModule,
     SharedModule
   ],
-  declarations: [DataTableComponent, DataTableEntryComponent],
+  declarations: [DataTableComponent, DataTableEntryComponent, DataTableFilterDetailsComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
