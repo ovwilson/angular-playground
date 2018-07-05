@@ -48,7 +48,7 @@ export class DataTableEntryComponent implements OnInit {
     return this._models;
   }
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.createForm();
@@ -57,7 +57,9 @@ export class DataTableEntryComponent implements OnInit {
   createForm() {
     this.modelForm = this.fb.group({
       firstName: ['', Validators.required],
-      lastName: ['', Validators.required]
+      lastName: ['', Validators.required],
+      category: '',
+      type: ''
     });
   }
 

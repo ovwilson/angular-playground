@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import * as fromUtils from './admin.utils';
+import * as fromData from './admin.data';
+
+import { Schema, Entity, FieldDef, ContentType } from './models/model';
 
 
 @Component({
@@ -13,10 +16,12 @@ import * as fromUtils from './admin.utils';
 export class AdminComponent {
 
     testBed: any = new fromUtils.AdminSandbox();
-    models: any[] = this.testBed.models;
-    modelGroup: any[] = this.testBed.modelGroupChild;
+    schemas: Entity<Schema[]> = fromData.schemas;
+    fieldDefs: Entity<FieldDef[]> = fromData.fieldDefs;
+    contentTypes: ContentType[];
 
     constructor() {
+        this.contentTypes = this.testBed.contentTypes;
     }
 
 }
