@@ -12,29 +12,52 @@
   <mat-card-content>
 
     <mat-tab-group>
-      <mat-tab label="Model Manager">
-        <p> <mat-icon>assessment</mat-icon> Creating Schemas for ..... </p>
 
-   
-        <mat-accordion>
-          <mat-expansion-panel *ngFor="let schema of schemas.ids">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                {{schema}}
-              </mat-panel-title>
-              <mat-panel-description>
+      <mat-tab label="Schemas">
+        <p>Model schemas and attribtues for application data set</p>
+        <div fxLayout="row">
 
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-            
-            <app-data-table [models]="schemas.entities[schema]" [modelGroup]="fieldDefs.entities['Schema']"></app-data-table>
-          </mat-expansion-panel>
-        </mat-accordion>
+          <mat-selection-list dense fxFlex="20%">
+            <mat-list-option *ngFor="let schema of keys$ | async"> {{schema}} </mat-list-option>
+          </mat-selection-list>
+
+          <mat-accordion fxFlex>
+
+            <mat-expansion-panel *ngFor="let schema of keys$ | async">
+              <mat-expansion-panel-header>
+                <mat-panel-title> {{schema}} </mat-panel-title>
+
+                <mat-panel-description></mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <!-- <app-data-table [models]="(data$ | async)[schema].schema" [modelGroup]="data['Schema'].attributes"></app-data-table> -->
+
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
 
 
 
       </mat-tab>
-      <mat-tab label="Content Types">
+
+      <!-- <mat-tab label="Content Types">
+
+        <mat-accordion fxFlex>
+
+          <mat-expansion-panel *ngFor="let content of data['ContentType'].data">
+
+            <mat-expansion-panel-header>
+              <mat-panel-title> {{content.title}}</mat-panel-title>
+               <mat-panel-description>{{content.description}} </mat-panel-description>
+            </mat-expansion-panel-header>
+              {{data['Rule'].seed() | json}}
+             <app-data-table [models]="content.json" [modelGroup]="data[content.key].attributes"></app-data-table> 
+          </mat-expansion-panel>
+        </mat-accordion>
+
+      </mat-tab> -->
+
+      <!-- <mat-tab label="Content Types">
           <p> <mat-icon>assessment</mat-icon>Build Content Types </p>
          
         <mat-accordion>
@@ -51,7 +74,7 @@
               <app-data-table [models]="content.json" [modelGroup]="fieldDefs.entities[content.title]"></app-data-table>
             </mat-expansion-panel>
           </mat-accordion>
-      </mat-tab>
+      </mat-tab> -->
     </mat-tab-group>
   </mat-card-content>
 </mat-card>

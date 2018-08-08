@@ -1,21 +1,16 @@
-type ModelType = 'select' | 'text' | 'textarea' | 'radio';
+export type FieldType = 'select' | 'text' | 'textarea' | 'radio' | 'person';
 
-interface Option {
+export interface Option {
     label: string;
     value: string;
 }
 
-export interface ContentType {
-    id?: string;
-    title?: string;
-    description?: string;
-    tag?: string;
-    key?: string;
-    value?: string;
-    json?: any[];
+export interface Schema {
+    name: string;
+    type: string;
 }
 
-export interface FieldDef {
+export interface ModelAttribute {
     id?: string;
     title?: string;
     name?: string;
@@ -23,25 +18,18 @@ export interface FieldDef {
     visible?: boolean;
     required?: boolean;
     filter?: boolean;
-    type?: ModelType;
+    type?: FieldType;
     description?: string;
     placeholder?: string;
     hint?: string;
     error?: string;
     options?: Option[];
     default?: string;
-}
-
-export interface Schema {
-    name: string;
-    type: string;
+    schema?: Schema;
     validation?: any[];
-    // pre(this: any): () => any;
-    // post(this: any): () => any;
 }
 
-export interface Entity<V> {
-    ids: string[];
-    entities: { [name: string]: V };
+export interface Entity<S, A> {
+    [name: string]: { schema?: S, attributes?: A, data?: any[], seed?: () => any };
 }
 
