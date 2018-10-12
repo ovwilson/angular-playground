@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "playground": "angular-playground"
+    "playground": "angular-playground",
+    "version:patch":"npm version patch -m \"Upgrading to %s\" && git push && git push --tags"
   },
   "private": true,
   "dependencies": {
